@@ -58,6 +58,18 @@ module.exports = {
           },
         },
       },
+
+      {
+        test: /\.ttf$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[hash].[ext]',
+            outputPath: 'assets/fonts',
+            publicPath: 'assets/fonts',
+          },
+        },
+      },
     ],
   },
 };
