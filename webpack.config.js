@@ -1,12 +1,20 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'public'),
-    filename: 'bundle.js',
+    filename: 'bundle[contenthash].js',
   },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/template.html',
+    }),
+  ],
+
   module: {
     rules: [
       {
@@ -18,6 +26,26 @@ module.exports = {
             presets: ['@babel/preset-env'],
           },
         },
+      },
+
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'less-loader',
+            options: {
+              lessOptions: {
+                sourceMap: true,
+              },
+            },
+          },
+        ],
       },
     ],
   },
