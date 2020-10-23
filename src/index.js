@@ -1,6 +1,7 @@
 import ButtonGroup from './components/ButtonGroup';
 import Screen from './components/Screen';
 
+import winners from './male.csv';
 import './less/index.less';
 
 /* ----------------Root---------------- */
@@ -47,3 +48,5 @@ function Main() {
 
 const calc = new Main();
 calc.init();
+
+console.log(winners);

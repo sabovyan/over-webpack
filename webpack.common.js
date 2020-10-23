@@ -50,6 +50,11 @@ module.exports = {
           },
         },
       },
+
+      {
+        test: /\.csv$/,
+        use: ['csv-loader'],
+      },
     ],
   },
 };
