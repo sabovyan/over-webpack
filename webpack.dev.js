@@ -13,4 +13,27 @@ module.exports = merge(common, {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
   },
+  module: {
+    rules: [
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'less-loader',
+            options: {
+              lessOptions: {
+                sourceMap: true,
+              },
+            },
+          },
+        ],
+      },
+    ],
+  },
 });

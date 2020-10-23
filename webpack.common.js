@@ -23,26 +23,6 @@ module.exports = {
       },
 
       {
-        test: /\.less$/,
-        use: [
-          {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-          },
-          {
-            loader: 'less-loader',
-            options: {
-              lessOptions: {
-                sourceMap: true,
-              },
-            },
-          },
-        ],
-      },
-
-      {
         test: /\.html$/,
         use: ['html-loader'],
       },
